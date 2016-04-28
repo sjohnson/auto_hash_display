@@ -1,0 +1,27 @@
+= Hash Format Helper
+
+The HashFormatHelper module for Ruby on Rails creates HTML for displaying a 
+hash's information. 
+
+Given a Ruby hash, these methods create HTML to display the content in a much 
+more visually appealing format than the raw hash.
+
+The hash may be a nested hash. It may contain string values, integer/float
+values, hash values, or array values.
+
+This module is especially useful if the application you are adding it to uses
+Bootstrap; it adds classes that are defined in Bootstrap.
+
+== Adapting for XML
+If you would like to use this to display XML, you can call Hash.from_xml on
+your XML data and then pass that in to the module. One potential warning:
+the from_xml method drops some attributes from the XML tags, so some data that
+could potentially be useful may be lost. I will consider adapting this for use
+with Nokogiri.
+
+== Use
+Copy the hash_format_helper.rb file into your Ruby on Rails app/helpers folder.
+Rails picks up all helper files in that folder. In your views files, you can
+then call it:
+  <%= format_hash(@my_hash) %>
+
